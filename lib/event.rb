@@ -4,7 +4,7 @@ class Event
   attr_accessor :coordinate, :id, :tickets, :price, :distance
 
   def initialize
-    @coordinate = 0
+    @coordinate = []
     @id = ''
     @tickets = 0
     @price = 0
