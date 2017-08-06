@@ -2,9 +2,6 @@ require './lib/coordinate'
 require './lib/user'
 require './lib/event'
 
-a = Coordinate.new
-a.set(-11,11)
-
 b = User.new
 b.user_input=('  45  ,  60  ')
 

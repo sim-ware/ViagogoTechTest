@@ -4,41 +4,15 @@
 #   attr_accessor :coordinate, :id, :tickets, :price, :distance
 #
 #   def initialize
-#     @coordinate = []
-#     @id = ''
-#     @tickets = 0
-#     @price = 0
-#     @distance = 0
+#     @coordinate = Coordinate.new
+#     @id = '000' from 1 - 9
+#     @tickets = 0 moderate to be zero or more
+#     @price = 0 moderate to be non-zero, express in usd
+#     @distance = 0 should be calculated in Query class, as it requires, User, Event, and respective Coordinate
+# =>              objects to work
 #   end
 #
 # end
-
-# require_relative 'pricer'
-# require_relative 'discounter'
-#
-# class Order
-#   attr_accessor :clock, :standard_del, :express_del, :price, :discount_price
-#
-#   def initialize
-#     @clock = ''
-#     @standard_del = []
-#     @express_del = []
-#     @price = 0
-#     @discount_price = 0
-#   end
-#
-#   def clock_number(number)
-#     @clock = "#{number}"
-#   end
-#
-#   def standard_delivery_companies(*args)
-#     @standard_del.push(args)
-#     @standard_del = @standard_del[0]
-#   end
-#
-#   def express_delivery_companies(*args)
-#     @express_del << args
-#     @express_del = @express_del[0]
-#   end
-#
-# end
+# (e.g. 1, 2, 3).
+# • Each event has zero or more tickets.
+# • Each ticket has a non-zero price, expressed in US Dollars
