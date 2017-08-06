@@ -1,17 +1,17 @@
-require_relative 'coordinate'
-
-class Event
-  attr_accessor :coordinate, :id, :tickets, :price, :distance
-
-  def initialize
-    @coordinate = []
-    @id = ''
-    @tickets = 0
-    @price = 0
-    @distance = 0
-  end
-
-end
+# require_relative 'coordinate'
+#
+# class Event
+#   attr_accessor :coordinate, :id, :tickets, :price, :distance
+#
+#   def initialize
+#     @coordinate = []
+#     @id = ''
+#     @tickets = 0
+#     @price = 0
+#     @distance = 0
+#   end
+#
+# end
 
 # require_relative 'pricer'
 # require_relative 'discounter'

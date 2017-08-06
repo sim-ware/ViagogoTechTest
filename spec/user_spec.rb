@@ -1,14 +1,15 @@
-# require 'coordinate'
-#
-# describe Coordinate do
-#
-#   context "#initialize" do
-#     it "is initialized with empty coordinates by default" do
-#       coordinate = Coordinate.new
-#       expect(coordinate.x).to eq 0
-#       expect(coordinate.y).to eq 0
-#     end
-#   end
+require 'user'
+
+describe User do
+
+  context "#initialize" do
+    it "is initialized with empty attributes by default" do
+      user = User.new
+      expect(user.user_input).to eq ''
+      expect(user.coordinate.x).to eq 0
+      expect(user.coordinate.y).to eq 0
+    end
+  end
 #
 #   context "#set" do
 #     it "coordinates can be set to integers" do
@@ -19,4 +20,4 @@
 #     end
 #   end
 #
-# end
+end

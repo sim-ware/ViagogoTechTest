@@ -10,10 +10,11 @@ describe Coordinate do
     end
   end
 
-  context "#set" do
-    it "coordinates can be set to integers" do
+  context "#x and #y" do
+    it "'x' and 'y' attributes can be set to integers" do
       coordinate = Coordinate.new
-      coordinate.set(-10, 10)
+      coordinate.x = -10
+      coordinate.y = 10
       expect(coordinate.x).to eq -10
       expect(coordinate.y).to eq 10
     end
