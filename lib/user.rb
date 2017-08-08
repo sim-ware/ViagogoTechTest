@@ -8,12 +8,12 @@ class User
     @coordinate = Coordinate.new
   end
 
-  def get_user_input
+  def user_input_to_coordinates
     puts "Please Input Coordinates:"
     @user_input = gets.chomp
     # input_checker
-    self.coordinate.x = self.user_input.split(",")[0].strip
-    self.coordinate.y = self.user_input.split(",")[1].strip
+    # self.coordinate.x = self.user_input.split(",")[0].strip
+    # self.coordinate.y = self.user_input.split(",")[1].strip
   end
 
   def find_x
