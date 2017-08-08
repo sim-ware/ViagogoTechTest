@@ -5,7 +5,7 @@ class Event
 
   def initialize
     @coordinate = Coordinate.new
-    @id = '0'
+    @id = 0
     @tickets = 0
     @price = 0
   end
