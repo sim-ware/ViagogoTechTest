@@ -21,7 +21,7 @@ class User
   end
 
   def check_y
-    self.user_input.split(",")[1].strip.to_i >= -10 && self.user_input.split(",")[1].strip.to_i <= 10 ? self.coordinate.y = self.user_input.split(",")[0].strip : 'Enter Coordinates as Integers between -10 and 10'
+    self.user_input.split(",")[1].strip.to_i >= -10 && self.user_input.split(",")[1].strip.to_i <= 10 ? self.coordinate.y = self.user_input.split(",")[1].strip : 'Enter Coordinates as Integers between -10 and 10'
   end
 
 end
