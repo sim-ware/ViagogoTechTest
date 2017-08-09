@@ -8,3 +8,4 @@ c = User.new
 d = Event.new
 
 e = EventList.new
+e.create_events
