@@ -8,55 +8,36 @@ class EventList
     @list = []
   end
 
-  def create_event(x, y, id, tickets, price)
-    a = Event.new
-    a.coordinate.x = x
-    a.coordinate.y = y
-    a.id_setter(id)
-    a.ticket_setter(tickets)
-    a.price_setter(price)
-    @list.push(a)
+  # def create_event(tickets, price)
+  #   a = Event.new
+  #   a.ticket_setter(tickets)
+  #   a.price_setter(price)
+  #   @list.push(a)
+  # end
+
+  def create_events
+    for i in 0..9
+      a = Event.new
+      b = rand(0..100)
+      c = rand(20.00..200.00)
+      a.ticket_setter(b)
+      a.price_setter(c)
+      @list.push(a)
+    end
+  end
+  #
+  # for i in 0..5
+  #    puts "Value of local variable is #{i}"
+  # end
+
+  def create_ids(id)
+    #loops through Events in Event List and Gives them ordered, unique ID's
+  end
+
+  def create_coordinates(x, y)
+    # loops through Events in Event List and Assigns each a coordinate, and then
+    # checks through all other Events in Event List, and if those coordinates are unique
+    # moves on to the next one and does the same thing
   end
 
 end
-
-# if self.list.any?
-#   (0..self.list.length).each do |i|
-#     if (a.coordinate.x == self.list[i].coordinate.x) && (a.coordinate.y == self.list[i].coordinate.y)
-#       return "Coordinates Already Taken."
-#     end
-#   end
-# end
-#
-# def check_coordinates(event)
-#   if self.list.any?
-#     if (a.coordinate.x == self.list[0].coordinate.x) && (a.coordinate.y == self.list[0].coordinate.y)
-#       return "Coordinates Already Taken."
-#     end
-#   end
-# end
-#
-# (0..5).each do |i|
-#    puts "Value of local variable is #{i}"
-# end
-#
-# (0..self.list.length).each do |i|
-#   if (a.coordinate.x == self.list[i].coordinate.x) && (a.coordinate.y == self.list[i].coordinate.y)
-#     return "Coordinates Already Taken."
-#   end
-# end
-
-# def create_event(x, y, id, tickets, price)
-#   a = Event.new
-#   a.coordinate.x = x
-#   a.coordinate.y = y
-#   if self.list.any?
-#     if (a.coordinate.x == self.list[0].coordinate.x) && (a.coordinate.y == self.list[0].coordinate.y)
-#       return "Coordinates Already Taken."
-#     end
-#   end
-#   a.id_setter(id)
-#   a.ticket_setter(tickets)
-#   a.price_setter(price)
-#   @list.push(a)
-# end
