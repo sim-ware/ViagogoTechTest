@@ -27,6 +27,17 @@ describe EventList do
       eventlist.create_events
       expect(eventlist.list[0].tickets).to be_instance_of Integer
     end
+  end
+
+    context "#create_ids" do
+      it "Generates 9 Unique Ordered IDs for the Events in the List attribute Array" do
+       eventlist = EventList.new
+       eventlist.create_events
+       eventlist.create_ids
+       expect(eventlist.list[0].id).to eq 1
+       expect(eventlist.list[8].id).to eq 9
+      end
+    end
 
   end
   #
@@ -41,5 +52,3 @@ describe EventList do
   #
   #   end
   # end
-
-end
