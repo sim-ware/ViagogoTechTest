@@ -19,7 +19,6 @@ class EventList
     end
   end
 
-
   def create_ids
     for i in 0..8
       self.list[i].id_setter(i+1)
@@ -27,12 +26,6 @@ class EventList
   end
 
   def create_coordinates
-    # loops through Events in Event List and Assigns each a coordinate, and then
-    # checks through all other Events in Event List, and if those coordinates are unique
-    # moves on to the next one and does the same thing
-    # for i in 0..8
-    #   self.list[i].id_setter(i+1)
-    # end
     for i in 0..8
       self.list[i].coordinate.x = rand(-10..10)
       self.list[i].coordinate.y = rand(-10..10)
@@ -40,3 +33,17 @@ class EventList
   end
 
 end
+
+# loops through Events in Event List and Assigns each a coordinate, and then
+# checks through all other Events in Event List, and if those coordinates are unique
+# moves on to the next one and does the same thing
+# for i in 0..8
+#   self.list[i].id_setter(i+1)
+# end
+
+# for o in 0..i
+#   if self.list[i].coordinate.x == self.list[o].coordinate.x && self.list[i].coordinate.y == self.list[o].coordinate.y
+#     create_coordinates
+#   else
+#   end
+# end
