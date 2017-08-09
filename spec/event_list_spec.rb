@@ -29,26 +29,25 @@ describe EventList do
     end
   end
 
-    context "#create_ids" do
-      it "Generates 9 Unique Ordered IDs for the Events in the List attribute Array" do
-       eventlist = EventList.new
-       eventlist.create_events
-       eventlist.create_ids
-       expect(eventlist.list[0].id).to eq 1
-       expect(eventlist.list[8].id).to eq 9
-      end
+  context "#create_ids" do
+    it "Generates 9 Unique Ordered IDs for the Events in the List attribute Array" do
+     eventlist = EventList.new
+     eventlist.create_events
+     eventlist.create_ids
+     expect(eventlist.list[0].id).to eq 1
+     expect(eventlist.list[8].id).to eq 9
     end
-
   end
-  #
-  # context "#create_ids" do
-  #   it "Generates Unique ID's from 1-9 and assigns them to each Event Object within List attribute Array" do
-  #
-  #   end
-  # end
-  #
-  # context "#create_coordinates" do
-  #   it "Generates Random Coordinates between -10 and 10 and assigns them to each Event Object's Coordinate Object" do
-  #
-  #   end
-  # end
+
+
+  context "#create_coordinates" do
+    it "Generates Random Coordinates between -10 and 10 and assigns them to each Event Object's Coordinate Object" do
+     eventlist = EventList.new
+     eventlist.create_events
+     eventlist.create_coordinates
+     expect(eventlist.list[0].coordinate.x).to be_within(10).of(0)
+     expect(eventlist.list[8].coordinate.y).to be_within(10).of(0)
+    end
+  end
+
+end
