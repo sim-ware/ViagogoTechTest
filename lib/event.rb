@@ -1,32 +1,27 @@
 require_relative 'coordinate'
+require_relative 'ticket'
 
 class Event
-  attr_reader :coordinate, :id, :tickets, :price
+  attr_reader :coordinate, :id, :ticketlist
 
   def initialize
     @coordinate = Coordinate.new
     @id = 0
-    @tickets = 0
-    @price = 0
+    @ticketlist = []
   end
 
   def id_setter(number)
     @id = number
   end
 
-  def ticket_setter(number)
+  def create_tickets(number)
     if number.is_a? Integer
-      @tickets = number
+      for i in 0..(number-1)
+        ticket = Ticket.new
+        @ticketlist.push(ticket)
+      end
     else
       return 'Please enter an Integer'
-    end
-  end
-
-  def price_setter(float)
-    if float.is_a? Float
-      @price = format("$%.2f",float)
-    else
-      return 'Please enter a Float with up to 2 Decimal Places'
     end
   end
 
