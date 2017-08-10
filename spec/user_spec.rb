@@ -32,19 +32,23 @@ describe User do
       expect(user.coordinate.y).to eq "10"
     end
 
-  #   it 'doesnt change Coordinate x/y attributes if coordinate is less than -10 ' do
-  # #     @user = User.new
-  # #     @user.stub(:gets) { "-10, 10\n" }
-  # #     @user.get_user_input
-  # #     # expect(user.coordinate.x).to eq "-10, 10"
-  #   end
-  #
-  #   it 'doesnt change Coordinate x/y attributes if coordinate is greater than 10' do
-  # #     @user = User.new
-  # #     @user.stub(:gets) { "-10, 10\n" }
-  # #     @user.get_user_input
-  # #     # expect(user.coordinate.x).to eq "-10, 10"
-  #   end
+    it 'doesnt change Coordinate x/y attributes if coordinate is less than -10 ' do
+      user = User.new
+      user.stub(:gets) { "-11, -11\n" }
+      user.stub(:puts) { "Please Input Coordinates:" }
+      user.take_user_input
+      user.check_and_set_coordinates
+      expect(user.coordinate.x).to eq 0
+    end
+
+    it 'doesnt change Coordinate x/y attributes if coordinate is greater than 10' do
+      user = User.new
+      user.stub(:gets) { "11, 11\n" }
+      user.stub(:puts) { "Please Input Coordinates:" }
+      user.take_user_input
+      user.check_and_set_coordinates
+      expect(user.coordinate.x).to eq 0
+    end
   end
 
 end
