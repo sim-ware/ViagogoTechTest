@@ -12,10 +12,11 @@ class EventList
   def create_events
     for i in 0..8
       a = Event.new
-      b = rand(0..100)
-      c = rand(20.00..200.00)
-      a.ticket_setter(b)
-      a.price_setter(c)
+      # b = rand(0..100)
+      # c = rand(20.00..200.00)
+      # a.ticket_setter(b)
+      # a.price_setter(c)
+      a.create_tickets
       @list.push(a)
     end
   end

@@ -19,13 +19,13 @@ describe EventList do
     it "Generates valid Prices for those Objects" do
       eventlist = EventList.new
       eventlist.create_events
-      expect(eventlist.list[0].price).to be_instance_of String
+      expect(eventlist.list[0].ticketlist[0].price).to be_instance_of String
     end
 
     it "Generates valid Ticket Numbers for those Objects" do
       eventlist = EventList.new
       eventlist.create_events
-      expect(eventlist.list[0].tickets).to be_instance_of Integer
+      expect(eventlist.list[0].ticketlist.length).to be_instance_of Integer
     end
   end
 

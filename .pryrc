@@ -6,5 +6,4 @@ require './lib/ticket'
 
 
 
-d = Event.new
-d.create_tickets
+d = EventList.new
