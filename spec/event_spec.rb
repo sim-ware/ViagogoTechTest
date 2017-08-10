@@ -22,10 +22,10 @@ describe Event do
   end
 
   context "#create_tickets" do
-    it "Creates 3 Ticket Objects and Sets their Prices to Random Floats" do
+    it "Creates Random No. Between 0 and 5 Ticket Objects and Sets their Prices to Random Floats" do
       event = Event.new
       event.create_tickets
-      expect(event.ticketlist.length).to eq 3
+      expect(event.ticketlist.length).to be_within(2.5).of(2.5)
       expect(event.ticketlist[0].price).to be_instance_of String
     end
   end

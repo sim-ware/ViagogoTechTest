@@ -7,6 +7,7 @@ class Event
     @coordinate = Coordinate.new
     @id = 0
     @ticketlist = []
+    @r = (rand(0..4))
   end
 
   def id_setter(number)
@@ -14,7 +15,7 @@ class Event
   end
 
   def create_tickets
-    for i in 0..2
+    for i in 0..@r
       t = Ticket.new
       @ticketlist.push(t)
     end
@@ -22,7 +23,7 @@ class Event
   end
 
   def create_prices
-    for i in 0..2
+    for i in 0..@r
       @ticketlist[i].price_setter(rand(20.00..200.00))
     end
   end
