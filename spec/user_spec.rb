@@ -39,6 +39,7 @@ describe User do
       user.take_user_input
       user.check_and_set_coordinates
       expect(user.coordinate.x).to eq 0
+      expect(user.coordinate.y).to eq 0
     end
 
     it 'doesnt change Coordinate x/y attributes if coordinate is greater than 10' do
@@ -48,6 +49,7 @@ describe User do
       user.take_user_input
       user.check_and_set_coordinates
       expect(user.coordinate.x).to eq 0
+      expect(user.coordinate.y).to eq 0
     end
   end
 
