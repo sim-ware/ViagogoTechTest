@@ -13,31 +13,36 @@ d.create_coordinates
 
 # Coordinate Duplicate Checker // Event List
 
-b = []
+d.list[0].coordinate.x = -9
+d.list[0].coordinate.y = 9
+d.list[1].coordinate.x = -9
+d.list[1].coordinate.y = 9
 
-for i in 0..8
-  a = []
-a.push(d.list[i].coordinate.x)
-a.push(d.list[i].coordinate.y)
-b.push(a)
-end
-
-if b.uniq.length == b.length
-  puts "b does not contain duplicate coordinates"
-else
-  puts "b does contain duplicate coordinates"
-end
+# b = []
+#
+# for i in 0..8
+#   a = []
+# a.push(d.list[i].coordinate.x)
+# a.push(d.list[i].coordinate.y)
+# b.push(a)
+# end
+#
+# if b.uniq.length == b.length
+#   puts "Events do not contain duplicate coordinates"
+# else
+#   puts "Events do contain duplicate coordinates"
+# end
 
 # Manhattan Distance Calculator // Example Object
-
-u = User.new
-u.coordinate.x = 7
-u.coordinate.y = -4
-
-d.list[0].coordinate.x = -10
-d.list[0].coordinate.y = 9
-
-md = (u.coordinate.x - d.list[0].coordinate.x).abs + (u.coordinate.y - d.list[0].coordinate.y).abs
+#
+# u = User.new
+# u.coordinate.x = 7
+# u.coordinate.y = -4
+#
+# d.list[0].coordinate.x = -10
+# d.list[0].coordinate.y = 9
+#
+# md = (u.coordinate.x - d.list[0].coordinate.x).abs + (u.coordinate.y - d.list[0].coordinate.y).abs
 
 # returns a list of the five closest events, along with the cheapest ticket price for each event
 # Please Input Coordinates:
