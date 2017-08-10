@@ -1,17 +1,14 @@
 require_relative 'coordinate'
 
 class Event
-  attr_reader :coordinate, :id, :ticketlist
+  attr_accessor :coordinate, :id, :ticketlist, :distance
 
   def initialize
     @coordinate = Coordinate.new
     @id = 0
     @ticketlist = []
+    @distance = 0
     @r = (rand(0..4))
-  end
-
-  def id_setter(number)
-    @id = number
   end
 
   def create_tickets

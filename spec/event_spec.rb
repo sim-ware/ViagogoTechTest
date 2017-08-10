@@ -13,14 +13,6 @@ describe Event do
     end
   end
 
-  context "#id_setter" do
-    it "sets the Event's ID Attribute to the parameter supplied" do
-      event = Event.new
-      event.id_setter(1)
-      expect(event.id).to eq 1
-    end
-  end
-
   context "#create_tickets" do
     it "Creates Random No. Between 0 and 5 Ticket Objects and Sets their Prices to Random Floats" do
       event = Event.new
