@@ -26,6 +26,7 @@ describe User do
       user = User.new
       user.stub(:gets) { "-10, 10\n" }
       user.stub(:puts) { "Please Input Coordinates:" }
+      user.take_user_input
       user.check_and_set_coordinates
       expect(user.coordinate.x).to eq "-10"
       expect(user.coordinate.y).to eq "10"
