@@ -11,13 +11,13 @@ class Query
     @nearest = []
   end
 
-  def add_manhattan_distances
+  def calculate_manhattan_distances
     for i in 0..8
       self.eventlist.list[i].manhattan_distance = (self.user.coordinate.x - self.eventlist.list[i].coordinate.x).abs + (self.user.coordinate.y - self.eventlist.list[i].coordinate.y).abs
     end
   end
 
-  def five_nearest
+  def push_manhattan_distances
     for i in 0..8
       c = []
       c.push(self.eventlist.list[i].id) && c.push(self.eventlist.list[i].manhattan_distance)
