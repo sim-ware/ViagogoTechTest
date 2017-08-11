@@ -50,4 +50,17 @@ describe EventList do
     end
   end
 
+  context "#coordinate_duplicates" do
+    it "Checks the Coordinates to see if any are the same, and reruns the #create_coordinates method until they're unique" do
+      eventlist = EventList.new
+      eventlist.create_events
+      eventlist.create_coordinates
+      eventlist.list[0].coordinate.x = -9
+      eventlist.list[0].coordinate.y = 9
+      eventlist.list[1].coordinate.x = -9
+      eventlist.list[1].coordinate.y = 9
+      eventlist.coordinate_duplicates
+      expect(eventlist.coordinate_duplicates).to eq " "
+    end
+  end
 end

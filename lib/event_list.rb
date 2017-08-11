@@ -29,7 +29,7 @@ class EventList
     end
   end
 
-  def coordinate_duplicates?
+  def coordinate_duplicates
     b = []
       for i in 0..8
         a = []
@@ -37,7 +37,7 @@ class EventList
         a.push(self.list[i].coordinate.y)
         b.push(a)
       end
-    b.uniq.length == b.length ? false : true
+    b.uniq.length == b.length ? " " : create_coordinates
   end
 
 end
