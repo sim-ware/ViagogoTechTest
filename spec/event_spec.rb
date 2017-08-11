@@ -10,6 +10,7 @@ describe Event do
       expect(event.coordinate.y).to eq 0
       expect(event.id).to eq 0
       expect(event.ticketlist).to eq []
+      expect(event.manhattan_distance).to eq 0
     end
   end
 
