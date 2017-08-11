@@ -3,6 +3,7 @@ require './lib/user'
 require './lib/event'
 require './lib/event_list'
 require './lib/ticket'
+require './lib/query'
 
 
 
@@ -17,6 +18,74 @@ d.list[0].coordinate.x = -9
 d.list[0].coordinate.y = 9
 d.list[1].coordinate.x = -9
 d.list[1].coordinate.y = 9
+
+q = Query.new
+q.user.coordinate.x = 4
+q.user.coordinate.y = -12
+q.eventlist.create_events
+q.eventlist.create_ids
+q.eventlist.create_coordinates
+q.add_manhattan_distances
+q.five_nearest
+q.add_cheapest_prices
+q.nearest.sort! {|id, md| id[1] <=> md[1]}
+q.arrange
+q.show_nearest
+
+# w = q.eventlist.list[5].ticketlist
+# # objects.sort_by {|obj| obj.attribute}
+# w.sort_by! {|ticket| ticket.price.gsub(/[^\d\.]/, '').to_f}
+# Event 003 - $30.29, Distance 3
+# Event 001 - $35.20, Distance 5
+# Event 006 - $01.40, Distance 12
+
+
+# for i in 0..8
+ # w = q.eventlist.list[0].ticketlist
+ # w.sort_by! {|ticket| ticket.price.gsub(/[^\d\.]/, '').to_f}
+#   @nearest[i].push(w[0])
+# end
+
+# b = []
+# for i in 0..8
+#   c = []
+#   c.push(q.eventlist.list[i].id)
+#   c.push(q.eventlist.list[i].manhattan_distance)
+#   b.push(c)
+# end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# objects.sort_by(&:attribute)
+# a = q.eventlist.list
+# a.sort_by(&:manhattan_distance)
+#
+# objects.sort_by {|obj| obj.attribute}
+#
+# a.sort_by {|event| event.manhattan_distance }
+
+#
+#
+# # sorted = array.sort {|a,b| a[1] <=> b[1]}
+# y = b.sort {|id, md| id[1] <=> md[1]}
+
+# Hash["a" => 100, "b" => 200]
 
 # b = []
 #
