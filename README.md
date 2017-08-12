@@ -15,9 +15,12 @@ to +10 (X axis).
 
 ## Example Program Run
 ```
-Please Input Coordinates: > 4,2
+Please Input Coordinates:
+=> 4,2
 Closest Events to (4,2):
-Event 003 - $30.29, Distance 3 Event 001 - $35.20, Distance 5 Event 006 - $01.40, Distance 12
+Event 003 - $30.29, Distance 3
+Event 001 - $35.20, Distance 5
+Event 006 - $01.40, Distance 12
 ```
 
 ## Approach // Describe how you approached designing your solution to the problem.
