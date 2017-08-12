@@ -1,6 +1,6 @@
 # ViagogoTechTest
 
-## The challenge
+## The Challenge
 
 You are required to write a program which accepts a user location as a pair of co- ordinates, and returns a list of the five closest events, along with the cheapest ticket price for each event.
 
@@ -13,23 +13,35 @@ to +10 (X axis).
 * Each ticket has a non-zero price, expressed in US Dollars.
 * The distance between two points should be computed as the Manhattan distance.
 
+## Approach // Describe how you approached designing your solution to the problem.
+
+I wanted to follow the example closely, and focus on building a REPL-based entirely to create a piece
+of software with minimal dependencies, and is easy to use.
+I hoped this would give me greater control over the software, and better idea of how each part works.
+
+## Structure // Describe how you structured your code. Why did you do it this way?
+
+Domain Driven Design attempted, looked at splitting the nouns and verbs in Scenario into Class and Method ideas.
+Eventually had to create event_list and query classes to help manipulate the data.
+
 Please detail any assumptions you have made.
 assumes coordinates can be integer only
 
 assumes we only have an option of nine events at a time (convenience, 1-9)
 
-assumes max of 100 tickets, for convenience
+assumes max of 5 tickets, for convenience, can be changed in Event.rb by editing '@r' attribute
 
-Describe how you approached designing your solution to the problem.
+## How to Run
+# Getting started
+Enter the following commands in your terminal to download the program:
+- `git clone https://github.com/sim-ware/https://github.com/sim-ware/ViagogoTechTest.git.git`
+- cd into the ViagogoTechTest directory
+- Please run `bundle` to install the necessary ruby `gemfile` dependencies
 
-Describe how you structured your code. Why did you do it this way?
-
-Describe how to install and run your code and tests.
--Explain how when you've finished example in Pry, you can press 'q' to see breakdown of seeded data and if correct
-
-Describe the dependencies your code has. What trade-offs did you make when deciding what dependencies to use?
-
-Include screenshots of your running app.
+# Usage
+- Enter the command 'rspec' to run tests
+- Type the command `pry` to see an example run of the software
+- Enter 'q' in the PRY environment to return entire Query Object containing Random Seeded Data
 
 How might you change your program if you needed to support multiple events at the
 same location?
@@ -49,6 +61,11 @@ same location?
 
 How would you change your program if you were working with a much larger world
 size?
+
+-user location, range of coordinates within city, country?
+-adapt manhattan_distance calculation to work with non-grid city
+-database
+-user_login
 
 # HoneycombTechTest
 
