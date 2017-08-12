@@ -8,12 +8,18 @@ class User
     @coordinate = Coordinate.new
   end
 
+  def loop_input_moderation
+    while self.coordinate.x == 0 && self.coordinate.y == 0
+      self.take_user_input
+      self.check_and_set_coordinates
+    end
+  end
+
   def take_user_input
     puts "Please Input Coordinates between -10 and 10, separated by a Comma:"
     @user_input = gets.chomp
   end
 
-  # put check_and_set_coordinates inside take_user_input?
 
   def check_and_set_coordinates
     self.user_input.split(",")[0].strip.to_i >= -10 && self.user_input.split(",")[0].strip.to_i <= 10 ? self.coordinate.x = self.user_input.split(",")[0].strip : 'Enter Coordinates as Integers between -10 and 10'
@@ -21,3 +27,9 @@ class User
   end
 
 end
+#
+#
+# while q.user.coordinate.x == 0 && q.user.coordinate.y == 0
+#   q.user.take_user_input
+#   q.user.check_and_set_coordinates
+# end

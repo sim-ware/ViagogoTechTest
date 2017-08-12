@@ -7,10 +7,7 @@ require './lib/query'
 
 q = Query.new
 
-while q.user.coordinate.x == 0 && q.user.coordinate.y == 0
-  q.user.take_user_input
-  q.user.check_and_set_coordinates
-end
+q.user.loop_input_moderation
 
 q.eventlist.create_events
 q.eventlist.create_ids
