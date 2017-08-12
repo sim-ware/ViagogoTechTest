@@ -60,7 +60,7 @@ Enter the following commands in your terminal to download the program:
 
 ## Usage
 - Enter the command 'rspec' to run tests
-- Type the command `pry` to see an example run of the software
+- Type the command `pry` to see an example run of the software. When prompted, enter your Coordinates!
 - Enter 'q' in the PRY environment to return entire Query Object containing Random Seeded Data
 
 ```
@@ -89,7 +89,3 @@ When approaching the task, I initially thought of using a database but decided a
 I would also use Sinatra or a similar framework to make the software a web application. This would give me the added advantage of being able to streamline the UX with HTML and CSS, but also be able to take the User Location Coordinates through the browser and give the User a search that relates to the world they live in.
 
 In the interest of UX and a larger world size, it would be cool to have a grid the User could see that shows their location with respect to the nearest events around them. Using Sinatra would allow a clearer version of this than a REPL environment does, and it would also be easier for the User to trust the software this way. Especially when calculating the manhattan_distance with negative coordinates, it's hard to undertand the calculation without a visual representation of it (or at least I found when coding). Having a grid might help illuminate how a manhattan_distance works for the user, if they're unfamiliar with the method, like I was when starting this challenge.
-
-
-
--WOuld we even use MD?
