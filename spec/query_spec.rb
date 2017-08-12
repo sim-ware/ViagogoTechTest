@@ -49,4 +49,37 @@ describe Query do
     end
   end
 
+  context "#arrange" do
+    it "Goes through each Event Object's Ticket Prices, selects the cheapest and adds it to Query @nearest Array" do
+      query = Query.new
+      query.user.coordinate.x = 5
+      query.user.coordinate.y = -5
+      query.eventlist.create_events
+      query.eventlist.create_ids
+      query.eventlist.create_coordinates
+      query.calculate_manhattan_distances
+      query.push_manhattan_distances
+      query.add_cheapest_prices
+      query.arrange
+      expect(query.nearest.length).to eq 9
+      puts "#{query.nearest[0]}"
+      expect(query.nearest[0].length).to eq 3
+    end
+  end
+
+  # context "#show_nearest" do
+  #   it "Goes through each Event Object's Ticket Prices, selects the cheapest and adds it to Query @nearest Array" do
+  #     query = Query.new
+  #     query.user.coordinate.x = 5
+  #     query.user.coordinate.y = -5
+  #     query.eventlist.create_events
+  #     query.eventlist.create_ids
+  #     query.eventlist.create_coordinates
+  #     query.calculate_manhattan_distances
+  #     query.push_manhattan_distances
+  #     query.add_cheapest_prices
+  #
+  #   end
+  # end
+
 end
