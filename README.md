@@ -1,4 +1,18 @@
 # ViagogoTechTest
+
+## The challenge
+
+You are required to write a program which accepts a user location as a pair of co- ordinates, and returns a list of the five closest events, along with the cheapest ticket price for each event.
+
+* Your program should randomly generate seed data.
+Your program should operate in a world that ranges from -10 to +10 (Y axis), and -10
+to +10 (X axis).
+* Your program should assume that each co-ordinate can hold a maximum of one event.
+* Each event has a unique numeric identifier (e.g. 1, 2, 3).
+* Each event has zero or more tickets.
+* Each ticket has a non-zero price, expressed in US Dollars.
+* The distance between two points should be computed as the Manhattan distance.
+
 Please detail any assumptions you have made.
 assumes coordinates can be integer only
 
@@ -35,3 +49,100 @@ same location?
 
 How would you change your program if you were working with a much larger world
 size?
+
+# HoneycombTechTest
+
+## The challenge
+
+We have a system that delivers advertising materials to broadcasters.
+
+Advertising Material is uniquely identified by a 'Clock' number e.g.
+
+* `WNP/SWCL001/010`
+* `ZDW/EOWW005/010`
+
+Our sales team have some new promotions they want to offer so
+we need to introduce a mechanism for applying Discounts to orders.
+
+Promotions like this can and will change over time so we need the solution to be flexible.
+
+### Broadcasters
+
+These are the Broadcasters we deliver to
+
+* Viacom
+* Disney
+* Discovery
+* ITV
+* Channel 4
+* Bike Channel
+* Horse and Country
+
+
+### Delivery Products
+
+* Standard Delivery: $10
+* Express Delivery: $20
+
+### Discounts
+
+* Send 2 or more materials via express delivery and the price for express delivery drops to $15
+* Spend over $30 to get 10% off
+
+### What we want from you
+
+Provide a means of defining and applying various discounts to the cost of delivering material to broadcasters.
+
+We don't need any UI for this, we just need you to show us how it would work through its API.
+
+## Examples
+
+Based on the both Discounts applied, the following examples should be valid:
+
+* send `WNP/SWCL001/010` to Disney, Discovery, Viacom via Standard Delivery and Horse and Country via Express Delivery
+    based on the defined Discounts the total should be $45.00
+
+* send `ZDW/EOWW005/010` to Disney, Discovery, Viacom via Express Delivery
+     based on the defined Discounts the total should be $40.50
+
+## User Stories
+```
+As a Sales Team Member
+So that I can give a client a quote
+I'd like to see the price of an order
+```
+```
+As a user
+So that I can offer a client a Discounted quote
+I'd like to see the Discounted Price of an order
+```
+
+
+This is a ruby program that can be run in irb or pry, which has the following
+functionality developed using TDD and using OO principles:
+
+## Getting started
+Enter the following commands in your terminal to download the program:
+- `git clone https://github.com/sim-ware/HoneycombTechTest.git`
+- cd into the HoneycombTechTest directory
+- Please run `bundle` to install the necessary ruby `gemfile` dependencies
+
+## Usage
+- Type the command `pry`
+
+```
+> o = Order.new
+ => #<Order:0x007fe70d10f288 @clock="", @standard_del=[], @express_del=[], @price=0, @discount_price=0>
+
+> o.clock_number('WNP/SWCL001/010')
+ => "WNP/SWCL001/010"
+
+>o.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
+ => ["Disney", "Discovery", "Viacom"]
+
+> o.express_delivery_companies('Horse & County')
+ => ["Horse & County"]
+> o
+
+ => #<Order:0x007fe70d10f288 @clock="WNP/SWCL001/010", @standard_del=["Disney", "Discovery", "Viacom"], @express_del=["Horse & County"], @price=0, @discount_price=0>  
+```

@@ -27,9 +27,3 @@ class User
   end
 
 end
-#
-#
-# while q.user.coordinate.x == 0 && q.user.coordinate.y == 0
-#   q.user.take_user_input
-#   q.user.check_and_set_coordinates
-# end
