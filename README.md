@@ -64,12 +64,13 @@ Enter the following commands in your terminal to download the program:
 - Enter 'q' in the PRY environment to return entire Query Object containing Random Seeded Data
 
 ```
-Please Input Coordinates:
-=> 4,2
-Closest Events to (4,2):
-Event 003 - $30.29, Distance 3
-Event 001 - $35.20, Distance 5
-Event 006 - $01.40, Distance 12
+Please Input Coordinates between -10 and 10, separated by a Comma:
+ => 4,3
+Event 008 - $126.25, Distance 7
+Event 001 - $81.56, Distance 8
+Event 002 - $174.41, Distance 8
+Event 005 - $28.42, Distance 9
+Event 006 - $124.07, Distance 13
 ```
 
 How might you change your program if you needed to support multiple events at the
