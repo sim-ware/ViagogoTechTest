@@ -33,11 +33,11 @@ I hoped this would give me greater control over the software, and a better idea 
 
 I attempted a Domain Driven Design, looking at splitting the nouns and verbs in the given Scenario into
 Class and Method ideas. I centred around User and Event Objects, and their interactions. Both Objects needed
-coordinates, and given the attention the task gave to coordinates (i.e. they have to be between -10 and 10,
+Coordinates, and given the attention the task gave to coordinates (i.e. they have to be between -10 and 10,
 separate Event Objects cannot have the same coordinates, and the manhattan_distance calculations require
 coordinates) I decided to make a Coordinate Class too, which initializes within the Event and User classes
 as an attribute. Given the fact that each Event required several tickets with varying prices, and an eventual
-comparison of those prices, I thought it best to create a ticket class too, which initialise within the Event
+comparison of those prices, I thought it best to create a ticket class too, which initialises within the Event
 Class and are stored in a ticketlist Array. Given that in the example, a single User has several Event Options,
 I thought it best to create a class that can Instantiate and store Event Objects too, so that they can eventually
 be compared (by manhattan distance) too. Finally, I needed some sort of Class to instantiate a User and a list of
@@ -73,27 +73,30 @@ Event 005 - $28.42, Distance 9
 Event 006 - $124.07, Distance 13
 ```
 
-How might you change your program if you needed to support multiple events at the
-same location?
--Remove the Coordinate Duplicate Checker Function
--where located? how does it work? how does it make it easy to solve this problem?
--maybe if i had coded a grid, and actual coordinate objects (which i had thought
-  of doing) it would have made it much trickier
--in this instance it's an advantage, but in interest of UX probably better to have
-  a grid so user can trust calculation (e.g. Wiki Diagram Explanation of Distance
-  easy to understand pictorially, hard to constantly figure it out when coding,
-  assume user would feel safer with a picture of the situation)
---if we were to do this, maybe think about a select coordinate function where you
-  can see what's going on based on location
+# How might you change your program if you needed to support multiple events at the same location?
+
+  I would Remove the Coordinate Duplicates Function in EventList Class, called #coordinate_duplicates.
+When an EventList has been created, and populated with random seed data through the #create_events, #create_ids, and #create_coordinates methods, it places all the Event's Coordinates within individual arrays, within a larger array, and checks to see if any of the coordinates match. If they do, the #create_coordinates method is re-run, reseeding the Coordinates randomly until none of the coordinates match. By removing the method and its process described above, Coordinates are randomly generated for Event Objects as integers between -10 and 10, but with no regard for whether they overlap.
+  
+
+
+
 -it could have an overall price comparer, instead of just one per Event Object,
   allowing the User to make a decision based on price. How would you Code this?
 
 
-How would you change your program if you were working with a much larger world
-size?
+# How would you change your program if you were working with a much larger world size?
 
 -assumptions would harm usefulness - hard coded and a little inconsistent in their location
 -user location, range of coordinates within city, country?
--adapt manhattan_distance calculation to work with non-grid city
--database
--user_login
+-adapt manhattan_distance calculation to work with non-grid city, think of using google API or some sort of Map software
+-database, handle information and make random seed data generation a bit easier and smoother to code - can be done in a
+ rails file using active record for example - whereas i've hard coded the randomness over several files which makes it a
+ bit harder to customise
+ -user_login
+ -in interest of UX probably better to have
+   a grid so user can trust calculation (e.g. Wiki Diagram Explanation of Distance
+   easy to understand pictorially, hard to constantly figure it out when coding,
+   assume user would feel safer with a picture of the situation)
+ --if we were to do this, maybe think about a select coordinate function where you
+   can see what's going on based on location
