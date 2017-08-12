@@ -17,7 +17,6 @@ describe Query do
       query = Query.new
       query.user.coordinate.x = 5
       query.user.coordinate.y = -5
-      query.eventlist.list
       query.eventlist.create_events
       query.eventlist.create_ids
       query.eventlist.create_coordinates
@@ -31,13 +30,22 @@ describe Query do
       query = Query.new
       query.user.coordinate.x = 5
       query.user.coordinate.y = -5
-      query.eventlist.list
       query.eventlist.create_events
       query.eventlist.create_ids
       query.eventlist.create_coordinates
       query.calculate_manhattan_distances
       query.push_manhattan_distances
       expect(query.nearest.length).to be 9
+    end
+  end
+
+  context "#add_cheapest_prices" do
+    it "Goes through each Event Object's Ticket Prices, selects the cheapest and adds it to Query @nearest Array" do
+      query = Query.new
+      query.eventlist.create_events
+      query.push_manhattan_distances
+      query.add_cheapest_prices
+      expect(query.nearest[0][2]).to be_instance_of String
     end
   end
 
