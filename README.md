@@ -13,11 +13,18 @@ to +10 (X axis).
 * Each ticket has a non-zero price, expressed in US Dollars.
 * The distance between two points should be computed as the Manhattan distance.
 
+## Example Program Run
+```
+Please Input Coordinates: > 4,2
+Closest Events to (4,2):
+Event 003 - $30.29, Distance 3 Event 001 - $35.20, Distance 5 Event 006 - $01.40, Distance 12
+```
+
 ## Approach // Describe how you approached designing your solution to the problem.
 
 I wanted to follow the example closely, and focus on building a REPL-based entirely to create a piece
 of software with minimal dependencies, and is easy to use.
-I hoped this would give me greater control over the software, and better idea of how each part works.
+I hoped this would give me greater control over the software, and a better idea of how each part works.
 
 ## Structure // Describe how you structured your code. Why did you do it this way?
 
