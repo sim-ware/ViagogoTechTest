@@ -61,25 +61,25 @@ describe Query do
       query.push_manhattan_distances
       query.add_cheapest_prices
       query.arrange
-      # puts "#{query.nearest[0]}"
       y = query.nearest[8][1]
       expect(query.nearest[0][1]).to be < y
     end
   end
 
-  # context "#show_nearest" do
-  #   it "Returns a List of the 5 Nearest Events, their ID, and cheapest Price" do
-  #     query = Query.new
-  #     query.user.coordinate.x = 5
-  #     query.user.coordinate.y = -5
-  #     query.eventlist.create_events
-  #     query.eventlist.create_ids
-  #     query.eventlist.create_coordinates
-  #     query.calculate_manhattan_distances
-  #     query.push_manhattan_distances
-  #     query.add_cheapest_prices
-  #     query.arrange
-  #   end
-  # end
+  context "#show_nearest" do
+    it "Returns a List of the 5 Nearest Events, their ID, and cheapest Price" do
+      query = Query.new
+      query.user.coordinate.x = 5
+      query.user.coordinate.y = -5
+      query.eventlist.create_events
+      query.eventlist.create_ids
+      query.eventlist.create_coordinates
+      query.calculate_manhattan_distances
+      query.push_manhattan_distances
+      query.add_cheapest_prices
+      query.arrange
+      expect(query.show_nearest).to eq 0..4
+    end
+  end
 
 end
