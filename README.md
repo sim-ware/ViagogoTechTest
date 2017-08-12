@@ -23,23 +23,33 @@ Event 001 - $35.20, Distance 5
 Event 006 - $01.40, Distance 12
 ```
 
-## Approach // Describe how you approached designing your solution to the problem.
+## Approach
 
 I wanted to follow the example closely, and focus on building a REPL-based entirely to create a piece
 of software with minimal dependencies, and is easy to use.
 I hoped this would give me greater control over the software, and a better idea of how each part works.
 
-## Structure // Describe how you structured your code. Why did you do it this way?
+## Structure
 
-Domain Driven Design attempted, looked at splitting the nouns and verbs in Scenario into Class and Method ideas.
-Eventually had to create event_list and query classes to help manipulate the data.
+I attempted a Domain Driven Design, looking at splitting the nouns and verbs in the given Scenario into
+Class and Method ideas. I centred around User and Event Objects, and their interactions. Both Objects needed
+coordinates, and given the attention the task gave to coordinates (i.e. they have to be between -10 and 10,
+separate Event Objects cannot have the same coordinates, and the manhattan_distance calculations require
+coordinates) I decided to make a Coordinate Class too, which initializes within the Event and User classes
+as an attribute. Given the fact that each Event required several tickets with varying prices, and an eventual
+comparison of those prices, I thought it best to create a ticket class too, which initialise within the Event
+Class and are stored in a ticketlist Array. Given that in the example, a single User has several Event Options,
+I thought it best to create a class that can Instantiate and store Event Objects too, so that they can eventually
+be compared (by manhattan distance) too. Finally, I needed some sort of Class to instantiate a User and a list of
+Events so that they can interact, and created the Query Class
 
-Please detail any assumptions you have made.
-assumes coordinates can be integer only
+# Assumptions
 
-assumes we only have an option of nine events at a time (convenience, 1-9)
-
-assumes max of 5 tickets, for convenience, can be changed in Event.rb by editing '@r' attribute
+When writing this software I had to make assumptions about the maximum number of Events within an Eventlist, and
+the number of tickets on offer per event. I decided to have a max of 9 Events per EventList, and 5 tickets per
+event because these were easily manipulable numbers in a development environment. I also assumed that the only
+valid coordinates within the -10 to 10 range were the integer ones. Again this was a decision taken because it
+made development easier.
 
 ## How to Run
 # Getting started
@@ -52,6 +62,15 @@ Enter the following commands in your terminal to download the program:
 - Enter the command 'rspec' to run tests
 - Type the command `pry` to see an example run of the software
 - Enter 'q' in the PRY environment to return entire Query Object containing Random Seeded Data
+
+```
+Please Input Coordinates:
+=> 4,2
+Closest Events to (4,2):
+Event 003 - $30.29, Distance 3
+Event 001 - $35.20, Distance 5
+Event 006 - $01.40, Distance 12
+```
 
 How might you change your program if you needed to support multiple events at the
 same location?
@@ -72,104 +91,8 @@ same location?
 How would you change your program if you were working with a much larger world
 size?
 
+-assumptions would harm usefulness - hard coded and a little inconsistent in their location
 -user location, range of coordinates within city, country?
 -adapt manhattan_distance calculation to work with non-grid city
 -database
 -user_login
-
-# HoneycombTechTest
-
-## The challenge
-
-We have a system that delivers advertising materials to broadcasters.
-
-Advertising Material is uniquely identified by a 'Clock' number e.g.
-
-* `WNP/SWCL001/010`
-* `ZDW/EOWW005/010`
-
-Our sales team have some new promotions they want to offer so
-we need to introduce a mechanism for applying Discounts to orders.
-
-Promotions like this can and will change over time so we need the solution to be flexible.
-
-### Broadcasters
-
-These are the Broadcasters we deliver to
-
-* Viacom
-* Disney
-* Discovery
-* ITV
-* Channel 4
-* Bike Channel
-* Horse and Country
-
-
-### Delivery Products
-
-* Standard Delivery: $10
-* Express Delivery: $20
-
-### Discounts
-
-* Send 2 or more materials via express delivery and the price for express delivery drops to $15
-* Spend over $30 to get 10% off
-
-### What we want from you
-
-Provide a means of defining and applying various discounts to the cost of delivering material to broadcasters.
-
-We don't need any UI for this, we just need you to show us how it would work through its API.
-
-## Examples
-
-Based on the both Discounts applied, the following examples should be valid:
-
-* send `WNP/SWCL001/010` to Disney, Discovery, Viacom via Standard Delivery and Horse and Country via Express Delivery
-    based on the defined Discounts the total should be $45.00
-
-* send `ZDW/EOWW005/010` to Disney, Discovery, Viacom via Express Delivery
-     based on the defined Discounts the total should be $40.50
-
-## User Stories
-```
-As a Sales Team Member
-So that I can give a client a quote
-I'd like to see the price of an order
-```
-```
-As a user
-So that I can offer a client a Discounted quote
-I'd like to see the Discounted Price of an order
-```
-
-
-This is a ruby program that can be run in irb or pry, which has the following
-functionality developed using TDD and using OO principles:
-
-## Getting started
-Enter the following commands in your terminal to download the program:
-- `git clone https://github.com/sim-ware/HoneycombTechTest.git`
-- cd into the HoneycombTechTest directory
-- Please run `bundle` to install the necessary ruby `gemfile` dependencies
-
-## Usage
-- Type the command `pry`
-
-```
-> o = Order.new
- => #<Order:0x007fe70d10f288 @clock="", @standard_del=[], @express_del=[], @price=0, @discount_price=0>
-
-> o.clock_number('WNP/SWCL001/010')
- => "WNP/SWCL001/010"
-
->o.standard_delivery_companies('Disney', 'Discovery', 'Viacom')
- => ["Disney", "Discovery", "Viacom"]
-
-> o.express_delivery_companies('Horse & County')
- => ["Horse & County"]
-> o
-
- => #<Order:0x007fe70d10f288 @clock="WNP/SWCL001/010", @standard_del=["Disney", "Discovery", "Viacom"], @express_del=["Horse & County"], @price=0, @discount_price=0>  
-```
