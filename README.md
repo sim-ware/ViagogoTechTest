@@ -43,7 +43,7 @@ I thought it best to create a class that can Instantiate and store Event Objects
 be compared (by manhattan distance) too. Finally, I needed some sort of Class to instantiate a User and a list of
 Events so that they can interact, and created the Query Class
 
-# Assumptions
+### Assumptions
 
 When writing this software I had to make assumptions about the maximum number of Events within an Eventlist, and
 the number of tickets on offer per event. I decided to have a max of 9 Events per EventList, and 5 tickets per
@@ -51,14 +51,14 @@ event because these were easily manipulable numbers in a development environment
 valid coordinates within the -10 to 10 range were the integer ones. Again this was a decision taken because it
 made development easier.
 
-## How to Run
-# Getting started
+# How to Run
+## Getting started
 Enter the following commands in your terminal to download the program:
 - `git clone https://github.com/sim-ware/https://github.com/sim-ware/ViagogoTechTest.git.git`
 - cd into the ViagogoTechTest directory
 - Please run `bundle` to install the necessary ruby `gemfile` dependencies
 
-# Usage
+## Usage
 - Enter the command 'rspec' to run tests
 - Type the command `pry` to see an example run of the software
 - Enter 'q' in the PRY environment to return entire Query Object containing Random Seeded Data
@@ -73,11 +73,11 @@ Event 005 - $28.42, Distance 9
 Event 006 - $124.07, Distance 13
 ```
 
-# How might you change your program if you needed to support multiple events at the same location?
+## How might you change your program if you needed to support multiple events at the same location?
 
   I would Remove the Coordinate Duplicates Function in EventList Class, called #coordinate_duplicates.
 When an EventList has been created, and populated with random seed data through the #create_events, #create_ids, and #create_coordinates methods, it places all the Event's Coordinates within individual arrays, within a larger array, and checks to see if any of the coordinates match. If they do, the #create_coordinates method is re-run, reseeding the Coordinates randomly until none of the coordinates match. By removing the method and its process described above, Coordinates are randomly generated for Event Objects as integers between -10 and 10, but with no regard for whether they overlap.
-  
+
 
 
 
@@ -85,7 +85,7 @@ When an EventList has been created, and populated with random seed data through 
   allowing the User to make a decision based on price. How would you Code this?
 
 
-# How would you change your program if you were working with a much larger world size?
+## How would you change your program if you were working with a much larger world size?
 
 -assumptions would harm usefulness - hard coded and a little inconsistent in their location
 -user location, range of coordinates within city, country?
