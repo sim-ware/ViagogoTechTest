@@ -9,7 +9,7 @@ class User
   end
 
   def take_user_input
-    puts "Please Input Coordinates:"
+    puts "Please Input Coordinates between -10 and 10, separated by a Comma:"
     @user_input = gets.chomp
   end
 

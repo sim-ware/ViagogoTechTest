@@ -1,61 +1,37 @@
 # ViagogoTechTest
-
+Please detail any assumptions you have made.
 assumes coordinates can be integer only
 
 assumes we only have an option of nine events at a time (convenience, 1-9)
 
 assumes max of 100 tickets, for convenience
 
-Deprecation Warnings:
+Describe how you approached designing your solution to the problem.
 
-Using `stub` from rspec-mocks' old `:should` syntax without explicitly enabling the syntax is deprecated. Use the new `:expect` syntax or explicitly enable `:should` instead. Called from /Users/simmy/Code/ViagogoTechTest/spec/user_spec.rb:36:in `block (3 levels) in <top (required)>'.
+Describe how you structured your code. Why did you do it this way?
+
+Describe how to install and run your code and tests.
+-Explain how when you've finished example in Pry, you can press 'q' to see breakdown of seeded data and if correct
+
+Describe the dependencies your code has. What trade-offs did you make when deciding what dependencies to use?
+
+Include screenshots of your running app.
+
+How might you change your program if you needed to support multiple events at the
+same location?
+-Remove the Coordinate Duplicate Checker Function
+-where located? how does it work? how does it make it easy to solve this problem?
+-maybe if i had coded a grid, and actual coordinate objects (which i had thought
+  of doing) it would have made it much trickier
+-in this instance it's an advantage, but in interest of UX probably better to have
+  a grid so user can trust calculation (e.g. Wiki Diagram Explanation of Distance
+  easy to understand pictorially, hard to constantly figure it out when coding,
+  assume user would feel safer with a picture of the situation)
+--if we were to do this, maybe think about a select coordinate function where you
+  can see what's going on based on location
+-it could have an overall price comparer, instead of just one per Event Object,
+  allowing the User to make a decision based on price. How would you Code this?
 
 
-If you need more of the backtrace for any of these deprecations to
-identify where to make the necessary changes, you can configure
-`config.raise_errors_for_deprecations!`, and it will turn the
-deprecation warnings into errors, giving you the full backtrace.
-
-puts please enter coordinates in RSpec
-
-
-# if self.list.any?
-#   (0..self.list.length).each do |i|
-#     if (a.coordinate.x == self.list[i].coordinate.x) && (a.coordinate.y == self.list[i].coordinate.y)
-#       return "Coordinates Already Taken."
-#     end
-#   end
-# end
-#
-# def check_coordinates(event)
-#   if self.list.any?
-#     if (a.coordinate.x == self.list[0].coordinate.x) && (a.coordinate.y == self.list[0].coordinate.y)
-#       return "Coordinates Already Taken."
-#     end
-#   end
-# end
-#
-# (0..5).each do |i|
-#    puts "Value of local variable is #{i}"
-# end
-#
-# (0..self.list.length).each do |i|
-#   if (a.coordinate.x == self.list[i].coordinate.x) && (a.coordinate.y == self.list[i].coordinate.y)
-#     return "Coordinates Already Taken."
-#   end
-# end
-
-# def create_event(x, y, id, tickets, price)
-#   a = Event.new
-#   a.coordinate.x = x
-#   a.coordinate.y = y
-#   if self.list.any?
-#     if (a.coordinate.x == self.list[0].coordinate.x) && (a.coordinate.y == self.list[0].coordinate.y)
-#       return "Coordinates Already Taken."
-#     end
-#   end
-#   a.id_setter(id)
-#   a.ticket_setter(tickets)
-#   a.price_setter(price)
-#   @list.push(a)
-# end
+How would you change your program if you were working with a much larger world
+size?

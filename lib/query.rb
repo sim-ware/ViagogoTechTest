@@ -13,7 +13,7 @@ class Query
 
   def calculate_manhattan_distances
     for i in 0..8
-      self.eventlist.list[i].manhattan_distance = (self.user.coordinate.x - self.eventlist.list[i].coordinate.x).abs + (self.user.coordinate.y - self.eventlist.list[i].coordinate.y).abs
+      self.eventlist.list[i].manhattan_distance = (self.user.coordinate.x.to_i - self.eventlist.list[i].coordinate.x).abs + (self.user.coordinate.y.to_i - self.eventlist.list[i].coordinate.y).abs
     end
   end
 

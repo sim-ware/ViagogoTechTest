@@ -5,30 +5,20 @@ require './lib/event_list'
 require './lib/ticket'
 require './lib/query'
 
-
-
-d = EventList.new
-d.create_events
-d.create_ids
-d.create_coordinates
-
-# Coordinate Duplicate Checker // Event List
-
-d.list[0].coordinate.x = -9
-d.list[0].coordinate.y = 9
-d.list[1].coordinate.x = -9
-d.list[1].coordinate.y = 9
-
 q = Query.new
-q.user.coordinate.x = 4
-q.user.coordinate.y = -12
+
+while q.user.coordinate.x == 0 && q.user.coordinate.y == 0
+  q.user.take_user_input
+  q.user.check_and_set_coordinates
+end
+
 q.eventlist.create_events
 q.eventlist.create_ids
 q.eventlist.create_coordinates
-q.add_manhattan_distances
-q.five_nearest
+
+q.calculate_manhattan_distances
+q.push_manhattan_distances
 q.add_cheapest_prices
-q.nearest.sort! {|id, md| id[1] <=> md[1]}
 q.arrange
 q.show_nearest
 
