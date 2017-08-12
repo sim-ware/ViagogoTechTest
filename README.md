@@ -76,27 +76,20 @@ Event 006 - $124.07, Distance 13
 ## How might you change your program if you needed to support multiple events at the same location?
 
   I would Remove the Coordinate Duplicates Function in EventList Class, called #coordinate_duplicates.
-When an EventList has been created, and populated with random seed data through the #create_events, #create_ids, and #create_coordinates methods, it places all the Event's Coordinates within individual arrays, within a larger array, and checks to see if any of the coordinates match. If they do, the #create_coordinates method is re-run, reseeding the Coordinates randomly until none of the coordinates match. By removing the method and its process described above, Coordinates are randomly generated for Event Objects as integers between -10 and 10, but with no regard for whether they overlap.
-
-
-
-
--it could have an overall price comparer, instead of just one per Event Object,
-  allowing the User to make a decision based on price. How would you Code this?
+When an EventList has been created, and populated with random seed data through the #create_events, #create_ids, and #create_coordinates methods, #coordinate_duplicates places all the Event's Coordinates within individual arrays, within a larger array, and checks to see if any of the coordinates match. If they do, the #create_coordinates method is re-run, reseeding the Coordinates randomly until none of the coordinates match. By removing the method and its process described above, Coordinates are randomly generated for Event Objects as integers between -10 and 10, but with no regard for whether they overlap.
 
 
 ## How would you change your program if you were working with a much larger world size?
 
--assumptions would harm usefulness - hard coded and a little inconsistent in their location
--user location, range of coordinates within city, country?
--adapt manhattan_distance calculation to work with non-grid city, think of using google API or some sort of Map software
--database, handle information and make random seed data generation a bit easier and smoother to code - can be done in a
- rails file using active record for example - whereas i've hard coded the randomness over several files which makes it a
- bit harder to customise
- -user_login
- -in interest of UX probably better to have
-   a grid so user can trust calculation (e.g. Wiki Diagram Explanation of Distance
-   easy to understand pictorially, hard to constantly figure it out when coding,
-   assume user would feel safer with a picture of the situation)
- --if we were to do this, maybe think about a select coordinate function where you
-   can see what's going on based on location
+I would try to change the assumptions I made; by limiting the coordinate options to Integers, and having only a certain amount of Event and
+Ticket numbers hard-coded into the software, it would be more readily available to handle larger amounts of information.
+
+When approaching the task, I initially thought of using a database but decided against it, wanting to limit my software's dependencies. However if I were to use a much larger world, I think using a Database would be a must as a lot of the ways in which the methods transfer information between classes in my software could be streamlined by making database calls.
+
+I would also use Sinatra or a similar framework to make the software a web application. This would give me the added advantage of being able to streamline the UX with HTML and CSS, but also be able to take the User Location Coordinates through the browser and give the User a search that relates to the world they live in.
+
+In the interest of UX and a larger world size, it would be cool to have a grid the User could see that shows their location with respect to the nearest events around them. Using Sinatra would allow a clearer version of this than a REPL environment does, and it would also be easier for the User to trust the software this way. Especially when calculating the manhattan_distance with negative coordinates, it's hard to undertand the calculation without a visual representation of it (or at least I found when coding). Having a grid might help illuminate how a manhattan_distance works for the user, if they're unfamiliar with the method, like I was when starting this challenge.
+
+
+
+-WOuld we even use MD?
